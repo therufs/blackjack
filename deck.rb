@@ -26,13 +26,11 @@ class Deck
   def make_shuffled  ## KNUTH SHUFFLE ##
     i = 0
     l = @deck.length
-    ary = @deck
-    ary.each do
+    @deck.each do
       j = rand(i..l - 1)
       swap!(i, j)         ## this is hells of ugly
       i += 1
     end
-    @deck = ary
   end
 
   def shuffle
