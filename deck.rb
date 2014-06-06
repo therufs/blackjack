@@ -22,7 +22,7 @@ class Deck
     i = 0
     l = @deck.length
     @deck.each do
-      j = rand([i..l-1]) ## "no implicit convrsion of array into integer"
+      j = rand(i..l - 1)
       swap!(deck[i], deck[j])
       i += 1
     end
