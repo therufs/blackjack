@@ -23,10 +23,10 @@ class Card
   
   def value
     case rank
-    when :A then 1    ## pro tem
-    when :K then 13
-    when :Q then 12
-    when :J then 11
+    when :A then 1   ## pro tem
+    when :K then 10
+    when :Q then 10
+    when :J then 10  ## yuck 
     else @rank
     end
   end
