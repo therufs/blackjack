@@ -1,4 +1,5 @@
-# require 'card' ## pry doesn't like this?
+require 'card' ## pry doesn't like this?
+require 'hand'
 
 class Deck
   def initialize
@@ -14,13 +15,11 @@ class Deck
     @deck = deck
   end
   
-  def deck
-    @deck
-  end
+  attr_accessor :deck
 
-  def swap!(a, b)
-    @deck[a], @deck[b] = @deck[b], @deck[a]
-    @deck
+  def swap!(ary, a, b)
+    ary[a], ary[b] = ary[b], ary[a]
+    ary
   end
 
   def make_shuffled  ## KNUTH SHUFFLE ##
@@ -28,7 +27,7 @@ class Deck
     l = @deck.length
     @deck.each do
       j = rand(i..l - 1)
-      swap!(i, j)         ## this is hells of ugly
+      swap!(@deck, i, j)  ## there has got to be a better way to do this
       i += 1
     end
   end
@@ -43,11 +42,15 @@ class Deck
   end
 
   def deal
-    hand = []
+    hand = Hand.new
     2.times do 
-      hand.push draw 
+      Hand.cards.push draw 
     end
     hand
   end
+  
+  def hit
+  end
+    
 
 end

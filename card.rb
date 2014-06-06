@@ -9,14 +9,8 @@ class Card
     @suit = suit
   end
   
-  def suit
-    @suit
-  end
-  
-  def rank
-    @rank
-  end
-  
+  attr_accessor :suit, :rank
+
   def higher_than?(other_card)
     self.value > other_card.value
   end
