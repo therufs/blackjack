@@ -7,7 +7,7 @@ class Deck
     ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, :J, :Q, :K, :A]
     suits.each do |s|
       ranks.each do |r|
-        card = Card.new(r, s)  ## it always uses the first arg twice!
+        card = Card.new(r, s)  
         deck.push card
       end
     end
@@ -42,6 +42,14 @@ class Deck
 
   def draw      ## deals off bottom like a CHEATER
     @deck.pop
+  end
+
+  def deal
+    hand = []
+    2.times do 
+      hand.push draw 
+    end
+    hand
   end
 
 end
