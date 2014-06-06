@@ -1,4 +1,4 @@
-# require 'card' ## pry doesn't like this? 
+# require 'card' ## pry doesn't like this?
 
 class Deck
   def initialize
@@ -17,21 +17,31 @@ class Deck
   def deck
     @deck
   end
-  
-  def shuffle  ## KNUTH SHUFFLE
-    i = 0
-    l = @deck.length
-    @deck.each do
-      j = rand(i..l - 1)
-      swap!(deck[i], deck[j])
-      i += 1
-    end
+
+  def swap!(a, b)
+    @deck[a], @deck[b] = @deck[b], @deck[a]
     @deck
   end
-  
-  def swap!(a, b)
-    self[a], self[b] = self[b], self[a]
-    self
+
+  def make_shuffled  ## KNUTH SHUFFLE ##
+    i = 0
+    l = @deck.length
+    ary = @deck
+    ary.each do
+      j = rand(i..l - 1)
+      swap!(i, j)         ## this is hells of ugly
+      i += 1
+    end
+    @deck = ary
   end
-  
+
+  def shuffle
+    make_shuffled
+    @deck
+  end
+
+  def draw      ## deals off bottom like a CHEATER
+    @deck.pop
+  end
+
 end
