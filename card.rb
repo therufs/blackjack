@@ -11,10 +11,6 @@ class Card
   
   attr_accessor :suit, :rank
 
-  def higher_than?(other_card)
-    self.value > other_card.value
-  end
-  
   def value
     case rank
     when :A then 1   ## pro tem
@@ -24,7 +20,10 @@ class Card
     else @rank
     end
   end
-  
+
+  def higher_than?(other_card)
+    self.value > other_card.value
+  end
   ## I have questions about encapsulation.
   
 end
