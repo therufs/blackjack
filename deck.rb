@@ -1,5 +1,5 @@
 require './card' ## pry doesn't like this?
-# require 'hand'
+require './hand'
 
 class Deck
   def initialize
@@ -22,7 +22,7 @@ class Deck
     @cards
   end
 
-  def make_shuffled  ## KNUTH SHUFFLE ##
+  def shuffle  ## KNUTH SHUFFLE ##
     i = 0
     l = @cards.length
     @cards.each do
@@ -30,10 +30,6 @@ class Deck
       swap!(i, j)  ## there has got to be a better way to do this
       i += 1
     end
-  end
-
-  def shuffle
-    make_shuffled
     @cards
   end
 
@@ -41,15 +37,13 @@ class Deck
     @cards.pop
   end
 
-  def deal
-    hand = Hand.new
-    2.times do 
-      Hand.cards.push draw 
-    end
-    hand
+  def deal(player)
+    player.hand = Hand.new
+    2.times { player.hand.cards.push(draw) }
   end
   
-  def hit
+  def hit(player)
+    player.hand.cards.push(draw)
   end
     
 

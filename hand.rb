@@ -1,4 +1,4 @@
-require 'deck'
+require './deck'
 
 class Hand
   def initialize
@@ -25,7 +25,5 @@ class Hand
       ## hit or stand
     end
   end
-  
-  
   
 end
