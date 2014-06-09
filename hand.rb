@@ -10,8 +10,9 @@ class Hand
   attr_accessor :cards, :value
   
   def high_ace?
+    binding.pry
     values = []
-    @cards.each do |card| 
+    @cards.each do |card|  ## HERE BE THE PROBLEM.  probably. 
       values.push(card.value)  ## could prob be better (needs to be better in fact)
     end
     values.include?(11)
@@ -24,16 +25,13 @@ class Hand
   def total
     @value = 0
     vals = @cards.map { |c| c.value }
-    vals.each do |v|
-      @value += v
-    end
-    for card in @cards ## "Use next to skip iteration." ???
-      if high_ace? && @value > 21 && card.rank = :A
+    @value = vals.reduce(0, :+)
+    @cards.each do | card | ## omg rubocop docs!  <3 <3 <3
+      next unless high_ace? && @value > 21 && card.rank = :A
         reduce(card)
         total
       end
-    end
-    @value
+    @value ## this is calling the whole @value mess again
   end
   
   ## can't figure out how to test this so i think it doesn't belong here
