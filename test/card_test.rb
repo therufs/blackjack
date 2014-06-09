@@ -25,7 +25,7 @@ class CardTest < MiniTest::Unit::TestCase
     ten = Card.new(10, :spades)
     
     assert_equal king.value, 10
-    assert_equal ace.value, 1
+    assert_equal ace.value, 11
     assert_equal ten.value, 10
   end
 end
