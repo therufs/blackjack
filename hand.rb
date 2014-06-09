@@ -11,8 +11,8 @@ class Hand
   
   def high_ace?
     values = []
-    @cards.each do |card|
-      values.push(card.value)  ## could prob be better
+    @cards.each do |card| 
+      values.push(card.value)  ## could prob be better (needs to be better in fact)
     end
     values.include?(11)
   end

@@ -21,6 +21,10 @@ class Card
   def higher_than?(other_card)
     @value > other_card.value
   end
+  
+  def to_s
+    "#{rank} of #{suit}"
+  end
   ## I have questions about encapsulation.
   
 end
