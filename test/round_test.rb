@@ -1,6 +1,5 @@
 require "minitest/autorun"
-require "./round"
-require "pry"
+require "round"
 
 class RoundTest < MiniTest::Unit::TestCase
   
@@ -12,13 +11,6 @@ class RoundTest < MiniTest::Unit::TestCase
     refute deck.cards == round.deck.cards
   end
   
-  def test_that_pot_is_empty
-    player = Player.new
-    dealer = Dealer.new
-    round = Round.new(player, dealer)
-    assert_equal 0, round.pot
-  end
-
   def test_that_players_hands_start_empty
     player = Player.new
     dealer = Dealer.new

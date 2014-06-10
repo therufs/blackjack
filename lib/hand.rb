@@ -1,5 +1,4 @@
-require './deck'
-require 'pry'
+require 'deck'
 
 class Hand
   include Enumerable

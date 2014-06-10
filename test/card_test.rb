@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "./card"
+require "card"
 
 class CardTest < MiniTest::Unit::TestCase
   def test_that_card_has_a_suit

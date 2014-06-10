@@ -1,4 +1,4 @@
-require './person'
+require 'person'
 
 class Player < Person
 

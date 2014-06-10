@@ -1,5 +1,5 @@
-require './card' ## pry doesn't like this?
-require './hand'
+require 'card' ## pry doesn't like this?
+require 'hand'
 
 class Deck
 #  include Enumerable

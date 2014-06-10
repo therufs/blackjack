@@ -1,8 +1,7 @@
 # One round of blackjack, from dealing to settling up.
-require './deck'
-require './player'
-require './dealer'
-require 'pry'
+require 'deck'
+require 'player'
+require 'dealer'
 
 class Round 
   

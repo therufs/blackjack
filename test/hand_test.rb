@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "./hand"
+require "hand"
 
 class CardTest < MiniTest::Unit::TestCase
 

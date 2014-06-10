@@ -1,6 +1,6 @@
 require "minitest/autorun"
-require "./deck"
-require "./player"
+require "deck"
+require "player"
 
 class CardTest < MiniTest::Unit::TestCase
 

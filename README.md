@@ -1,5 +1,5 @@
 Command-line blackjack game.
-$ ruby -I. game.rb
+$ ./bin/blackjack
 
 Run tests: 
 $ rake

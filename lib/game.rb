@@ -1,12 +1,9 @@
+#!/usr/bin/env ruby
+
 require 'deck'
 require 'hand'
-require 'money'
-require 'bet'
-require 'pot'
-require 'bank'
 require 'round'
 require 'person'
-require 'pry'
 
 class Game
   def initialize
@@ -36,7 +33,6 @@ class Game
 
 end
 
-game = Game.new
 
 # tie:  get bet back
 # win:  get bet * 2
