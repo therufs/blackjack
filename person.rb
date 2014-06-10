@@ -10,7 +10,6 @@ class Person
   attr_accessor :hand, :bank
   
   def bet(amt)
-    Pot.total = Pot.total + amt
     @bank = @bank - amt
   end
   

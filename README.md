@@ -1,5 +1,8 @@
 Command-line blackjack game.
 
+Card and Hand are Comparable. 
+Hand and Deck are Enumerable. 
+
 TODO: 
 
 * write UI tests for round

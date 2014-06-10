@@ -1,6 +1,8 @@
 # A card has suit and rank.
 class Card
+  include comparable
   
+  attr_accessor :rank, :suit, :value
   # Rank is 2-10, :J, :Q, :K, :A
   # Suit is :clubs, :diamonds, :hearts, :spades
   # rank, suit -> Card
@@ -16,7 +18,9 @@ class Card
               end
   end
   
-  attr_accessor :rank, :suit, :value
+  def <=>(other)
+    self.value <=> other.value
+  end
   
   def higher_than?(other_card)
     @value > other_card.value

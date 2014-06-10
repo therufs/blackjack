@@ -2,6 +2,10 @@ require './card' ## pry doesn't like this?
 require './hand'
 
 class Deck
+  include Enumerable
+  
+  attr_accessor :cards
+
   def initialize
     cards = []  ## this name makes me uncomfortable
     suits = [:clubs, :diamonds, :hearts, :spades]
@@ -15,7 +19,11 @@ class Deck
     @cards = cards
   end
   
-  attr_accessor :cards
+  def each
+    cards.each do |card|
+      yield card
+    end
+  end
 
   def swap!(a, b)
     @cards[a], @cards[b] = @cards[b], @cards[a]
