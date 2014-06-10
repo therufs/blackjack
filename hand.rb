@@ -18,16 +18,20 @@ class Hand
   end
   
   def initialize
-    @cards = []  ## array of cards
+    @cards = []  
     @value = 0
   end
   
-  def high_ace?
+  def array_of_hand_values
     values = []
-    @cards.each do |card|  ## HERE BE THE PROBLEM.  probably. 
-      values.push(card.value)  ## could prob be better (needs to be better in fact)
+    @cards.each do |card|  
+      values.push(card.value) 
     end
-    values.include?(11)
+    values
+  end
+  
+  def high_ace? 
+    array_of_hand_values.include?(11)
   end
   
   def reduce(ace) # ace is a Card  ## Could prob use some failsafes
@@ -36,18 +40,21 @@ class Hand
   
   ## "why do you have a hand class?"
   
+  ## "update when you need it" --> avoid problem where salesman sold 23 or 25 lbs of chix
+
   def total
     @value = 0
     unless @cards == []
-      vals = @cards.map { |c| c.value }
-      @value = vals.reduce(0, :+)
+      values = array_of_hand_values  ## try .any?
+      @value = values.reduce(0, :+)  ## each { |e| out << yield(e) }
     end
-    @cards.each do | card | ## omg rubocop docs!  <3 <3 <3
-      next unless high_ace? && @value > 21 && card.rank = :A
-        reduce(card)
-        total
+    if high_ace? && @value > 21
+      @cards.each do | card | ## omg rubocop docs!  <3 <3 <3
+        reduce(card) if card.rank = :A ## this doesn't keep non-A cards from getting reduced
+        break if array_of_hand_values.reduce(0, :+) <= 21
       end
-    @value ## this is calling the whole @value mess again
+    end
+    @value = array_of_hand_values.reduce(0, :+)
   end
   
   ## can't figure out how to test this so i think it doesn't belong here

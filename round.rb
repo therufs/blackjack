@@ -6,6 +6,8 @@ require 'pry'
 
 class Round 
   
+  attr_accessor :deck, :bet, :stand, :winner ## could i get away with _reader here?
+  
   def initialize(player, dealer) ## Player and Dealer are class instances
     @deck = Deck.new
     deck.shuffle
@@ -15,11 +17,8 @@ class Round
     @stand = false
     @winner
   end
-  
-  attr_accessor :deck, :bet, :stand, :winner ## could i get away with _reader here?
-  
+
   def play
-    binding.pry
     deal
     players_turn
     dealers_turn
@@ -40,7 +39,6 @@ class Round
   end
   
   def try_hit(player)
-    binding.pry
     hit(player)
     if busted?(player) 
       puts "Busted!  You got the #{player.hand.cards.pop} for a total of #{player.hand.value}."

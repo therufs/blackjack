@@ -1,6 +1,6 @@
 # A card has suit and rank.
 class Card
-  include comparable
+  include Comparable
   
   attr_accessor :rank, :suit, :value
   # Rank is 2-10, :J, :Q, :K, :A

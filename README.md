@@ -1,24 +1,26 @@
 Command-line blackjack game.
+$ ruby -I. game.rb
+
+Run tests: 
+$ rake
+
+====
 
 Card and Hand are Comparable. 
 Hand and Deck are Enumerable. 
+Player and Dealer inherit from Person; at present this is entirely cosmetic. 
+
 
 TODO: 
 
 * write UI tests for round
-* write tests for game
-* implement bets & iteration
-* bug fixes
+* more tests for game
 * change "dealer" to "house"
-* improve action encapsulation to player & dealer
-* fix attr_accessor locations
-* write load tests for ace recursions
-** write load test for getting e.g. a bunch of 2s 
-* figure out what's up with things getting replaced with jacks 
+* figure out what's up with things getting replaced with jacks (or aces...?)
 * put lib code into /lib
 * get rid of unused class files 
-* change "dealer has" to "dealer shows"
-* @values = values.reduce(0, :+)
+* clean up comments
+* pacify Rubocop
 
 General improvements:
 

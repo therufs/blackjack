@@ -13,12 +13,10 @@ class Game
     @player = Player.new ## Players start with an empty hand and $100. 
     @dealer = Dealer.new
     puts "~~ Let's play blackjack! ~~"
-    binding.pry
     play
   end
     
   def play
-    binding.pry
     if @player.bank > 0 
       round = Round.new(@player, @dealer)  ## start with a fresh, shuffled deck 
       round.play
@@ -28,7 +26,6 @@ class Game
   end
   
   def ask
-    binding.pry
     puts "Press Q to quit or Enter to play again." ## lies, it doesn't care what you put
     ans = gets.chomp
     case ans 
